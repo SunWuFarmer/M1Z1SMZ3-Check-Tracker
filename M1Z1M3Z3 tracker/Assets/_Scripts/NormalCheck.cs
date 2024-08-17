@@ -16,11 +16,11 @@ public class OneCheckPl : MonoBehaviour
     [SerializeField] private Sprite NormalCheckSprite;
     [SerializeField] private NormalLogic _normalLogic;
     [SerializeField] private ItemsReamaining stats;
-    [SerializeField] private ItemStatus[] Requireditems;
-    [SerializeField] private ItemStatus[] Requireditems2;
-    [SerializeField] private ItemStatus[] Requireditems3;
-    [SerializeField] private ItemStatus[] YellowItems;
-    [SerializeField] private ItemStatus[] blueItems;
+    [SerializeField] private Iteminfo[] Requireditems;
+    [SerializeField] private Iteminfo[] Requireditems2;
+    [SerializeField] private Iteminfo[] Requireditems3;
+    [SerializeField] private Iteminfo[] YellowItems;
+    [SerializeField] private Iteminfo[] blueItems;
     
     private bool green;
     private bool pressed;
@@ -56,7 +56,7 @@ public class OneCheckPl : MonoBehaviour
                 } 
         }
     }
-
+    
     private void RunLogic()
     {
         if (Requireditems != null)

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class Item : MonoBehaviour
@@ -11,11 +12,10 @@ public class Item : MonoBehaviour
   [SerializeField] private Sprite item2;
   [SerializeField] private Sprite item3;
   [SerializeField] private Sprite item4;
-
   [SerializeField] private ItemLogic ItemTrigger1;
-  [SerializeField] private ItemStatus _itemStatus;
+  [FormerlySerializedAs("_itemStatus")] [SerializeField] private Iteminfo iteminfo;
   [SerializeField] private ItemLogic ItemTrigger2;
-  [SerializeField] private ItemStatus _itemStatus2;
+  [SerializeField] private Iteminfo _itemStatus2;
   private bool triggered;
   private bool triggered2;
 
@@ -62,9 +62,9 @@ public class Item : MonoBehaviour
             displayeditem.sprite = item1;
             if (ItemTrigger1 != null )
             {
-              if (!_itemStatus.Item)
+              if (!iteminfo.Item)
               {
-                _itemStatus.Item = true;
+                iteminfo.Item = true;
               }
               else
               {
