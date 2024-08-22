@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 895c0d07c990e7340b5229ae71c242c5, type: 3}
   m_Name: Normal Logic
   m_EditorClassIdentifier: 
-  normalLogic: 0
+  normalLogic: 1

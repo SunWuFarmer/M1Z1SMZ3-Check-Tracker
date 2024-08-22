@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class OneCheckPl : MonoBehaviour
+public class NormalCheck : MonoBehaviour
 {
     [SerializeField] private int numberOfChecks;
     [SerializeField] private bool m1; 
@@ -16,128 +16,54 @@ public class OneCheckPl : MonoBehaviour
     [SerializeField] private Sprite NormalCheckSprite;
     [SerializeField] private NormalLogic _normalLogic;
     [SerializeField] private ItemsReamaining stats;
-    [SerializeField] private Iteminfo[] Requireditems;
-    [SerializeField] private Iteminfo[] Requireditems2;
-    [SerializeField] private Iteminfo[] Requireditems3;
-    [SerializeField] private Iteminfo[] YellowItems;
-    [SerializeField] private Iteminfo[] blueItems;
     
     private bool green;
-    private bool pressed;
+   [SerializeField] private bool pressed;
     private bool yellow;
     private bool blue;
 
-    public void SetNormal()
+    public void SetNormal(string color)
     {
+        
         if (!pressed)
         {
-            RunLogic();
             Image check = GetComponent<Image>();
-                if (green)
+                if (color=="green")
                 {
                     check.sprite = NormalCheckSprite;
                     check.color = Color.green;
                 }
 
-                else if (yellow)
+                else if (color=="yellow")
                 {
                     check.sprite = NormalCheckSprite;
-                    check.color = Color.yellow;
+                    check.color = new Color(1f,.8f,.1f);
                 }
-                else if (blue)
+                else if (color=="orange")
                 {
                     check.sprite = NormalCheckSprite;
-                    check.color = Color.blue;
+                    check.color = new Color(1,.5f,.5f);
                 }
-                else
+                
+                else if (color=="blue")
+                {
+                    check.sprite = NormalCheckSprite;
+                    check.color = new Color(.3f,.5f,1);
+                }
+                else if (color=="red")
                 {
                     check.sprite = SmallCheckSprite;
                     check.color = Color.red;
+                    
                 } 
         }
     }
     
-    private void RunLogic()
-    {
-        if (Requireditems != null)
-        {
-             foreach (var requireditem in Requireditems)
-             {
-                 if (!requireditem)
-                 {
-                     break;
-                 }
-                 else
-                 {
-                     green = true;
-                 }
-             }
-        }
-        else if  (Requireditems2 != null)
-        { 
-            foreach (var requiredItem2 in Requireditems2)
-            {
-                if (!requiredItem2)
-                {
-                    break;
-                }
-                else
-                {
-                    green = true;
-                }
-            }
-        }
-        else if  (Requireditems3 != null)
-        { 
-            foreach (var requiredItem3 in Requireditems3)
-            {
-                if (!requiredItem3)
-                {
-                    break;
-                }
-                else
-                {
-                    green = true;
-                }
-            }
-        }
-        else if  (YellowItems != null)
-        { 
-            foreach (var yellowitem  in YellowItems)
-            {
-                if (!yellowitem)
-                {
-                    break;
-                }
-                else
-                {
-                    yellow = true;
-                }
-            }
-        }
-        else if  (blueItems != null)
-        { 
-            foreach (var blueItem in blueItems)
-            {
-                if (!blueItem)
-                {
-                    break;
-                }
-                else
-                {
-                    blue = true;
-                }
-            }
-        }
-    }
-
     public void OnClick()
     {
         Image check = GetComponent<Image>();
-        if (green)
-        {
-            check.color = Color.gray;
-            green = false;
+        
+            check.color = Color.black;
             pressed = true;
             if (_normalLogic)
             {
@@ -163,13 +89,12 @@ public class OneCheckPl : MonoBehaviour
             {
                 stats.ItemsleftSM-=stats.ItemsleftSM;
             }
-        }
     }
     public void OnRightClick()
     { 
         Image check = GetComponent<Image>();
       
-        check.color =Color.green;
+        check.color =Color.gray;
         green = true;
         pressed = false;
     

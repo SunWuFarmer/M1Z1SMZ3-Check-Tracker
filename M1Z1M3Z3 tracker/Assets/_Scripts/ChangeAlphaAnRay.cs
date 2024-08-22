@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,13 +19,74 @@ public class ChangeAlphaAnRay : MonoBehaviour
    public CanvasGroup d8;
    public CanvasGroup d9;
    public CanvasGroup Z1R;
-   
+
+   public RectTransform SmTransform;
+   public RectTransform AlttpTransform;
+   public RectTransform ZebesTransform;
+   public RectTransform ZeldaTransform;
+   private Vector2 smstart;
+   private Vector2 alttpstart;
+   private Vector2 m1start;
+   private Vector2 z1start;
+
+
+   private void Start()
+   {
+      smstart = SmTransform.anchoredPosition;
+      alttpstart = AlttpTransform.anchoredPosition;
+      m1start = ZebesTransform.anchoredPosition;
+      z1start = ZeldaTransform.anchoredPosition;
+   }
+
+   public void all()
+
+   {
+      SmTransform.anchoredPosition = smstart;
+      AlttpTransform.anchoredPosition = alttpstart;
+       ZebesTransform.anchoredPosition = m1start;
+        ZeldaTransform.anchoredPosition = z1start;
+        SmTransform.localScale = new Vector3(0.46f, 0.52f, 0.53f);
+        AlttpTransform.localScale = new Vector3(0.47f, 0.5096385f, .56f);
+        ZebesTransform.localScale = new Vector3(.39f,.39f,.41f);
+        ZeldaTransform.localScale = new Vector3(0.67f, 0.43f, 0.71f);
+        
+      Z1R.blocksRaycasts = false;
+      Z1R.alpha = 0;
+      Sm.alpha = 1;
+      Sm.blocksRaycasts = true;
+      alttp.alpha = 1;
+      alttp.blocksRaycasts = true;
+      zebes.alpha = 1;
+      zebes.blocksRaycasts = true;
+      zelda.alpha = 1;
+      zelda.blocksRaycasts = true;
+      d1.alpha = 0;
+      d1.blocksRaycasts = false;
+      d2.alpha = 0;
+      d2.blocksRaycasts = false;
+      d3.alpha = 0;
+      d3.blocksRaycasts = false;
+      d4.alpha = 0;
+      d4.blocksRaycasts = false;
+      d5.alpha = 0;
+      d5.blocksRaycasts = false;
+      d6.alpha = 0;
+      d6.blocksRaycasts = false;
+      d7.alpha = 0;
+      d7.blocksRaycasts = false;
+      d8.alpha = 0;
+      d8.blocksRaycasts = false;
+      d9.alpha = 0;
+      d9.blocksRaycasts = false;
+   }
    public void SM()
    {
       Z1R.blocksRaycasts = false;
       Z1R.alpha = 0;
       Sm.alpha = 1;
       Sm.blocksRaycasts = true;
+      SmTransform.anchoredPosition = new Vector2(100, 250);
+      SmTransform.localScale = new Vector3(0.8f, 0.8f);
       alttp.alpha = 0;
       alttp.blocksRaycasts = false;
       zebes.alpha = 0;
@@ -57,6 +119,8 @@ public class ChangeAlphaAnRay : MonoBehaviour
       Z1R.alpha = 0;
       Sm.alpha = 0;
       Sm.blocksRaycasts = false;
+      AlttpTransform.anchoredPosition = new Vector2(483, -7);
+      AlttpTransform.localScale = new Vector3(0.8f, 0.8f);
       alttp.alpha = 1;
       alttp.blocksRaycasts = true;
       zebes.alpha = 0;
@@ -92,6 +156,8 @@ public class ChangeAlphaAnRay : MonoBehaviour
       alttp.blocksRaycasts = false;
       zebes.alpha = 1;
       zebes.blocksRaycasts = true;
+      ZebesTransform.anchoredPosition = new Vector2(405, 38);
+      ZebesTransform.localScale = new Vector3(0.8f, 0.8f);
       zelda.alpha = 0;
       zelda.blocksRaycasts = false;
       d1.alpha = 0;
@@ -125,6 +191,8 @@ public class ChangeAlphaAnRay : MonoBehaviour
       zebes.blocksRaycasts = false;
       zelda.alpha = 1;
       zelda.blocksRaycasts = true;
+      ZeldaTransform.anchoredPosition = new Vector2(100, 250);
+      ZeldaTransform.localScale = new Vector3(1f, .9f);
       d1.alpha = 0;
       d1.blocksRaycasts = false;
       d2.alpha = 0;

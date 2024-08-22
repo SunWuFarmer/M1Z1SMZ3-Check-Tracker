@@ -5,121 +5,125 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class Item : MonoBehaviour
+public class ItemSolt : MonoBehaviour
 {
   [SerializeField] private Sprite item0;
   [SerializeField] private Sprite item1;
   [SerializeField] private Sprite item2;
   [SerializeField] private Sprite item3;
   [SerializeField] private Sprite item4;
-  [SerializeField] private ItemLogic ItemTrigger1;
+  [FormerlySerializedAs("ItemTrigger")] [SerializeField] private ItemLogic itemTrigger;
   [FormerlySerializedAs("_itemStatus")] [SerializeField] private Iteminfo iteminfo;
-  [SerializeField] private ItemLogic ItemTrigger2;
-  [SerializeField] private Iteminfo _itemStatus2;
-  private bool triggered;
-  private bool triggered2;
+  [FormerlySerializedAs("_itemStatus2")] [SerializeField] private Iteminfo itemStatus2;
+  private bool _triggered;
+  private bool _triggered2;
 
-  private Image displayeditem;
-  private float itemshown = 0;
+  private Image _displayeditem;
+  private float _itemshown = 0;
 
   public void Start()
   {
-    displayeditem = GetComponent<Image>();
+    _displayeditem = GetComponent<Image>();
   }
 
   public void OnrightClick()
-  {displayeditem = GetComponent<Image>();
-    itemshown-=1;
-    if (itemshown < -0.5f)
+  {_displayeditem = GetComponent<Image>();
+    _itemshown-=1;
+    if (_itemshown < -0.5f)
     {
-      itemshown = 0;
+      _itemshown = 0;
     }
 
     DisplayImage();
   }
   public void OnLeftClick()
-  {displayeditem = GetComponent<Image>();
-    itemshown+=1;
-    if (itemshown > 4)
+  {_displayeditem = GetComponent<Image>();
+    _itemshown+=1;
+    if (_itemshown > 4)
     {
-      itemshown = 3;
+      _itemshown = 3;
     }
 
     DisplayImage();
   }
   private void DisplayImage()
      {
-       if (itemshown == 0)
+       if (_itemshown == 0)
        {
-         displayeditem.sprite = item0;
+         _displayeditem.sprite = item0;
+         if (iteminfo.Item)
+         {
+           iteminfo.Item = false;
+         }
+
+         if (itemTrigger != null)
+         {
+            itemTrigger.TriggerEvent();
+         }
+        
        }
 
-       if (itemshown == 1)
+       if (_itemshown == 1)
        {
          if (item1 != null)
          {
           
-            displayeditem.sprite = item1;
-            if (ItemTrigger1 != null )
+            _displayeditem.sprite = item1;
+            if (itemTrigger != null )
             {
               if (!iteminfo.Item)
               {
-                iteminfo.Item = true;
+               
+                if (itemStatus2 != null)
+                {
+                  itemStatus2.Item = false;
+                } iteminfo.Item = true;
               }
-              else
-              {
-                _itemStatus2.Item = false;
-              }
-              ItemTrigger1.TriggerEvent();
+              itemTrigger.TriggerEvent();
             }
          }
        }
 
-       if (itemshown == 2)
+       if (_itemshown == 2)
        {
          if ((item2 != null))
          {
-            displayeditem.sprite = item2;
-            if (ItemTrigger2 != null)
+            _displayeditem.sprite = item2;
+            if (itemTrigger != null)
             { 
-              
-              if (!_itemStatus2.Item)
+              if (!itemStatus2.Item)
               {
-                
-                  _itemStatus2.Item = true;
+                  itemStatus2.Item = true;
               }
-              else
-              {
-                _itemStatus2.Item = false;
-              }
+             
             }
-            ItemTrigger2.TriggerEvent(); 
+            itemTrigger.TriggerEvent(); 
          }
          else
          {
-           itemshown--;
+           _itemshown--;
          }
        }
-       if (itemshown == 3)
+       if (_itemshown == 3)
        {
          if (item3 != null)
          {
-           displayeditem.sprite = item3;
+           _displayeditem.sprite = item3;
          }
          else
          {
-           itemshown--;
+           _itemshown--;
          }
        }
-       if (itemshown == 4)
+       if (_itemshown == 4)
        {
          if (item4!= null)
          {
-           displayeditem.sprite = item4;
+           _displayeditem.sprite = item4;
          }
          else
          {
-           itemshown--;
+           _itemshown--;
          }
        }
      }

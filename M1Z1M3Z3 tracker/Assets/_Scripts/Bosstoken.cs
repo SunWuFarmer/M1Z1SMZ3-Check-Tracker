@@ -17,6 +17,7 @@ public class Bosstoken : MonoBehaviour
     private bool light;
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private int bossnumber;
+    [SerializeField] private ItemCount z3RequIteminfo;
 
     public void Start()
     {
@@ -30,7 +31,9 @@ public class Bosstoken : MonoBehaviour
         if (textnumber < 0)
         {
             textnumber = bossnumber;
-        }
+           
+
+        } z3RequIteminfo.itemcount = textnumber;
         DisplayText();
     }
    

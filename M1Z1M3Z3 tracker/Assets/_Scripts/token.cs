@@ -13,10 +13,19 @@ public class token : MonoBehaviour
      [SerializeField] private Sprite item6;
      [SerializeField] private Sprite item7;
      [SerializeField] private Sprite item8;
+     [SerializeField] private ItemCount pendent;
+     [SerializeField] private ItemCount redcystals;
+     [SerializeField] private ItemCount cystals;
+     [SerializeField] private Iteminfo greenpendent;
+     [SerializeField] private ItemLogic itemTrigger;
      private Image displayeditem;
      private bool light;
      private float itemshown = 1;
-   
+     private bool _pressed;
+     private bool _pressed3;
+     private bool _pressed2;
+     private bool _pressed4;
+
      public void Start()
      {
        displayeditem = GetComponent<Image>();
@@ -24,6 +33,7 @@ public class token : MonoBehaviour
    
      public void OnrightClick()
      {
+       itemTrigger.TriggerEvent();
        displayeditem = GetComponent<Image>();
        itemshown+=1;
        if (itemshown > 4)
@@ -32,17 +42,43 @@ public class token : MonoBehaviour
        }
    
        DisplayImage();
+       itemTrigger.TriggerEvent();
      }
      public void OnLeftClick()
      {
        if (!light)
        {
-
+         if (_pressed)
+         {
+           _pressed = false;
+           cystals.itemcount--;
+         }
+        
+         if (_pressed2)
+         {
+           _pressed2 = false;
+           redcystals.itemcount--;
+           cystals.itemcount--;
+         }
+        
+         if (_pressed3)
+         {
+           _pressed3 = false;
+           greenpendent.Item = false;
+         }
+        
+         if (_pressed4)
+         {
+           _pressed4 = false;
+           pendent.itemcount--;
+         }
 
          if (itemshown == 1)
          {
            displayeditem.sprite = item5;
            light = true;
+           cystals.itemcount++;
+           _pressed = true;
          }
 
          if (itemshown == 2)
@@ -51,6 +87,9 @@ public class token : MonoBehaviour
            {
              displayeditem.sprite = item6;
              light = true;
+             redcystals.itemcount++;
+             cystals.itemcount++;
+             _pressed2 = true;
            }
          }
 
@@ -60,6 +99,8 @@ public class token : MonoBehaviour
            {
              displayeditem.sprite = item7;
              light = true;
+             greenpendent.Item = true;
+             _pressed3 = true;
            }
          }
 
@@ -69,16 +110,22 @@ public class token : MonoBehaviour
            {
              displayeditem.sprite = item8;
              light = true;
+             pendent.itemcount++;
+             _pressed4 = true;
            }
          }
-       }
+       } 
+      
        else
        {
          DisplayImage();
        }
+       itemTrigger.TriggerEvent();
      }
      private void DisplayImage()
      {
+      
+       
 
        light = false;
           if (itemshown== 1)
@@ -110,11 +157,5 @@ public class token : MonoBehaviour
               displayeditem.sprite = item4;
             }
           }
-          
-
-          
-          {
-            
-          }
-        }
+     }
 }

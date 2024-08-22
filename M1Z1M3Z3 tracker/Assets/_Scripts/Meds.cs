@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MEDs : MonoBehaviour
+public class Meds : MonoBehaviour
 {
   
   
@@ -14,6 +14,11 @@ public class MEDs : MonoBehaviour
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private Sprite item0;
     [SerializeField] private Sprite item1;
+
+    [SerializeField] private Iteminfo TRaccess;
+    [SerializeField] private Iteminfo MMaccess;
+    [SerializeField] private Iteminfo bombos;
+    
     public void Start()
      {
        displayeditem = GetComponent<Image>();
@@ -42,18 +47,41 @@ public class MEDs : MonoBehaviour
        if (textnumber == 1)
        {
          text.text = "MM";
+         if (itemshown == 1)
+         {
+           MMaccess.Item = true;
+         }
+         else
+         {
+           MMaccess.Item = false;
+         }
        }
        if (textnumber == 2)
        {
          text.text = "TR";
+         if (itemshown == 1)
+         {
+           TRaccess.Item = true;
+         }
+         else
+         {
+           TRaccess.Item = false;
+         }
        }
-   
        if (textnumber == 3)
        {
          text.text = "Both";
+         if (itemshown == 1)
+         {
+           MMaccess.Item = true;
+           TRaccess.Item = true;
+         }
+         else
+         {
+           MMaccess.Item = false;
+           TRaccess.Item = false;
+         }
        }
-
-       
 
      }
 
@@ -64,21 +92,22 @@ public class MEDs : MonoBehaviour
        {
          itemshown = 0;
        }
-   
+      
        DisplayImage();
+       DisplayText();
      }
      private void DisplayImage()
         {
           if (itemshown == 0)
           {
             displayeditem.sprite = item0;
+            bombos.Item = false;
           }
    
           if (itemshown== 1)
           {
             displayeditem.sprite = item1;
+            bombos.Item = true;
           }
-   
-        
         }
 }

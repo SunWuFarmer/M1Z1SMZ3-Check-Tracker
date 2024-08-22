@@ -13,6 +13,9 @@ public class Ammo : MonoBehaviour
     private float itemshown = 0;
     private int textnumber = 0;
     [SerializeField] private TextMeshProUGUI text;
+    [SerializeField] private ItemLogic ItemTrigger;
+    [SerializeField] private Iteminfo _itemStatus1;
+    [SerializeField] private Iteminfo _itemStatus2;
    
     public void Start()
     {
@@ -38,9 +41,26 @@ public class Ammo : MonoBehaviour
     private void DisplayText()
     {
         text.text = textnumber.ToString();
-        if (textnumber > 3)
+        if (textnumber == 0)
+        {
+            displayeditem.sprite = item1;
+            _itemStatus1.Item = false;
+            ItemTrigger.TriggerEvent();
+        }
+
+        if (textnumber == 5)
+        { 
+            displayeditem.sprite = item2;
+            _itemStatus1.Item = true;
+            _itemStatus2.Item = false;
+            ItemTrigger.TriggerEvent();
+        }
+
+        if (textnumber == 10)
         {
             displayeditem.sprite = item2;
+            _itemStatus2.Item = true;
+            ItemTrigger.TriggerEvent();
         }
         
     }

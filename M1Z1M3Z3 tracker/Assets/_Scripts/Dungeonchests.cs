@@ -20,6 +20,36 @@ public class Dungeonchests : MonoBehaviour
         textnumber = checks;
         displayeditem = GetComponent<Image>();
     }
+    
+    
+    public void SetNormal(string color)
+    {
+        
+            Image check = GetComponent<Image>();
+            if (color=="green")
+            {
+               
+                check.color = Color.green;
+            }
+            else if (color=="yellow")
+            {
+                check.color = Color.yellow;
+            }
+            else if (color == "orange")
+            {
+                check.color = new Color(1, .4f, 0, 1);
+            }
+            else if (color=="blue")
+            {
+               
+                check.color = Color.blue;
+            }
+            else if (color=="red")
+            {
+                check.color = Color.red;
+            } 
+        
+    }
     public void OnrightClick()
     {
         displayeditem = GetComponent<Image>();

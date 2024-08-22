@@ -80,3 +80,24 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 96a681484a1137e438c569feca7e7414, type: 2}
   - {fileID: 11400000, guid: 676ead47a92fb9944802d8959f869da6, type: 2}
   - {fileID: 11400000, guid: 9ef3c8a574d5a5749afbddadd77e3ff0, type: 2}
+  - {fileID: 11400000, guid: 6cf2ae0d5d9b098478fdfd6a24c7a2cb, type: 2}
+  - {fileID: 11400000, guid: e31a8e8d0beae7f4f9e05fa7ac613401, type: 2}
+  - {fileID: 11400000, guid: d5d8c86ea4c5e194cab2a3780ffe13ee, type: 2}
+  - {fileID: 11400000, guid: ee935f44d967c704e90d2b58ab04d4f0, type: 2}
+  - {fileID: 11400000, guid: 35adead5ae3f0554b9c0fe6d5cd400c9, type: 2}
+  - {fileID: 11400000, guid: f419b7c7566185e4d89bf2d4c280e66a, type: 2}
+  - {fileID: 11400000, guid: 3b209f36368c8204fb07d9d08bbdc3ad, type: 2}
+  - {fileID: 11400000, guid: 271bb0463401a75469c33b4fa2d0eb9f, type: 2}
+  - {fileID: 11400000, guid: 3f1c12427fc67dc469815cd44b40f0c3, type: 2}
+  - {fileID: 11400000, guid: 68b2ed28c9695cc4ab3e17faff78ecc8, type: 2}
+  - {fileID: 11400000, guid: 6cb7abe1dfb15e54490770ae0a5f669d, type: 2}
+  - {fileID: 11400000, guid: c2850877a377b344fb5c7410ddd20966, type: 2}
+  - {fileID: 11400000, guid: afc663c4e37d1dd4ca80d053b0af0bf1, type: 2}
+  - {fileID: 11400000, guid: 8cda22dbfbbb7fd40bf396bcb06ce58c, type: 2}
+  - {fileID: 11400000, guid: 051d4d158c97a7e47afbe09531eba8e8, type: 2}
+  - {fileID: 11400000, guid: 10260ed4bdbaac9438c3206949d3b760, type: 2}
+  - {fileID: 11400000, guid: 04ca966523a9f3f4395093afb6f1f6ae, type: 2}
+  pendent: {fileID: 11400000, guid: e28ac170e212c3147b55fc4c069ee9eb, type: 2}
+  redcrystals: {fileID: 11400000, guid: c7d6eb2e0edfc0349961806717e58613, type: 2}
+  crystals: {fileID: 11400000, guid: 9c7c29c90a2d268408257ecaf6ae9a0a, type: 2}
+  requiredz3: {fileID: 11400000, guid: 8ed6e89def3d4ff459dac9a9accf30ca, type: 2}
