@@ -46,7 +46,7 @@ public class ChangeAlphaAnRay : MonoBehaviour
        ZebesTransform.anchoredPosition = m1start;
         ZeldaTransform.anchoredPosition = z1start;
         SmTransform.localScale = new Vector3(0.46f, 0.52f, 0.53f);
-        AlttpTransform.localScale = new Vector3(0.47f, 0.5096385f, .56f);
+        AlttpTransform.localScale = new Vector3(0.47f, 0.45f, .56f);
         ZebesTransform.localScale = new Vector3(.39f,.39f,.41f);
         ZeldaTransform.localScale = new Vector3(0.67f, 0.43f, 0.71f);
         
@@ -119,7 +119,7 @@ public class ChangeAlphaAnRay : MonoBehaviour
       Z1R.alpha = 0;
       Sm.alpha = 0;
       Sm.blocksRaycasts = false;
-      AlttpTransform.anchoredPosition = new Vector2(483, -7);
+      AlttpTransform.anchoredPosition = new Vector2(483, 14);
       AlttpTransform.localScale = new Vector3(0.8f, 0.8f);
       alttp.alpha = 1;
       alttp.blocksRaycasts = true;

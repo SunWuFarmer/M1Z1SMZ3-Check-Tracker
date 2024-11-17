@@ -186,6 +186,7 @@ public class UnderstandLogic : MonoBehaviour
   [SerializeField] private NormalCheck oldman2;
   [SerializeField] private NormalCheck oldmangrave;
   [SerializeField] private NormalCheck floatingboard;
+  [SerializeField] private NormalCheck floatingboard2;
   [SerializeField] private NormalCheck undersolder;
   [SerializeField] private NormalCheck rafttakeitem;
   [SerializeField] private NormalCheck bombtakeany1;
@@ -254,6 +255,7 @@ public class UnderstandLogic : MonoBehaviour
   [SerializeField] private Reader d5Boss;
   [SerializeField] private Reader d6a;
   [SerializeField] private Reader d6c;
+  [SerializeField] private Reader d6b;
   [SerializeField] private Reader d6d;
   [SerializeField] private Reader d6e;
   [SerializeField] private Reader d6f;
@@ -494,6 +496,7 @@ public class UnderstandLogic : MonoBehaviour
   private bool _canKillPolsVoice;
   private bool _canKillWizzrobes;
   private bool _z1Airrows;
+
 
 
   public void ReadLogic()
@@ -2785,10 +2788,13 @@ public class UnderstandLogic : MonoBehaviour
       if (_z1Ladder)
       {
         floatingboard.SetNormal("green");
+        floatingboard2.SetNormal("green");
+        
       }
       else
       {
         floatingboard.SetNormal("blue");
+        floatingboard2.SetNormal("blue");
       }
 
       if (_z1bombs)
@@ -3074,6 +3080,7 @@ public class UnderstandLogic : MonoBehaviour
       if (_canKillWizzrobes)
       {
         d6a.SetNormal("green");
+        d6b.SetNormal("green");
         d6c.SetNormal("green");
         d6g.SetNormal("green");
         d6h.SetNormal("green");
@@ -3105,6 +3112,7 @@ public class UnderstandLogic : MonoBehaviour
       {
         d6q.SetNormal("red");
         d6d.SetNormal("red");
+        d6b.SetNormal("red");
         d6q.SetNormal("red");
         d6e.SetNormal("red");
         d6f.SetNormal("red");
