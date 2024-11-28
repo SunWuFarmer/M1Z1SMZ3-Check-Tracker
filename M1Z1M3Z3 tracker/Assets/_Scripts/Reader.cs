@@ -9,6 +9,7 @@ public class Reader : MonoBehaviour
 {
     private Image buttonClick;
     public Image SmallCheck;
+    public Image SmallChecker;
     [SerializeField] private Sprite SmallCheckSprite;
     [SerializeField] private Sprite NormalCheckSprite;
     [SerializeField] private NormalLogic _normalLogic;
@@ -53,6 +54,8 @@ public class Reader : MonoBehaviour
                 check.color = Color.green;
                 SmallCheck.sprite = NormalCheckSprite;
                 SmallCheck.color = Color.green;
+                SmallChecker.sprite = NormalCheckSprite;
+                SmallChecker.color = Color.green;
             }
 
             else if (color=="yellow")
@@ -61,6 +64,8 @@ public class Reader : MonoBehaviour
                 check.color = new Color(1f,.8f,.1f);;
                 SmallCheck.sprite = NormalCheckSprite;
                 SmallCheck.color = new Color(1f,.8f,.1f);
+                SmallChecker.sprite = NormalCheckSprite;
+                SmallChecker.color = new Color(1f,.8f,.1f);
               
             }
             else if (color=="blue")
@@ -69,6 +74,8 @@ public class Reader : MonoBehaviour
                 check.color =new Color(.3f,.5f,1);;
                 SmallCheck.sprite = NormalCheckSprite;
                 SmallCheck.color = new Color(.3f,.5f,1);;
+                SmallChecker.sprite = NormalCheckSprite;
+                SmallChecker.color = new Color(.3f,.5f,1);;
             }
             else if (color=="red")
             {
@@ -76,6 +83,8 @@ public class Reader : MonoBehaviour
                 check.color = Color.red;
                 SmallCheck.sprite = SmallCheckSprite;
                 SmallCheck.color = Color.red;
+                SmallChecker.sprite = SmallCheckSprite;
+                SmallChecker.color = Color.red;
                 
             } 
         }
@@ -87,6 +96,7 @@ public class Reader : MonoBehaviour
         pressed = true;
             buttonClick.color = Color.clear;
             SmallCheck.color = Color.clear;
+            SmallChecker.color = Color.clear;
             
 
             stats.TotalItemsleft--;
@@ -116,6 +126,7 @@ public class Reader : MonoBehaviour
             {   
                 buttonClick.color = Color.green;
                 SmallCheck.color = Color.green;
+                SmallChecker.color = Color.green;
                 pressed = false;
                 Image check = GetComponent<Image>();
       

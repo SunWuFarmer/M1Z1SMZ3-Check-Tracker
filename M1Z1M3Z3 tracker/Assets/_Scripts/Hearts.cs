@@ -16,6 +16,7 @@ public class Hearts : MonoBehaviour
     [SerializeField] private ItemLogic ItemTrigger;
     [SerializeField] private Iteminfo _itemStatus1;
     [SerializeField] private Iteminfo _itemStatus2;
+    [SerializeField] private int maxnumberkeys = 14;
    
     public void Start()
     {
@@ -35,6 +36,17 @@ public class Hearts : MonoBehaviour
     {
         displayeditem = GetComponent<Image>();
         textnumber+=1;
+
+        if (textnumber >= maxnumberkeys)
+        {
+            textnumber = maxnumberkeys;
+            text.color = Color.green;
+        }
+        else
+        {
+            text.color = Color.white;
+        }
+        
         DisplayText();
     }
 

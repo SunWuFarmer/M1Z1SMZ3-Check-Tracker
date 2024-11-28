@@ -19,15 +19,28 @@ public class ChangeAlphaAnRay : MonoBehaviour
    public CanvasGroup d8;
    public CanvasGroup d9;
    public CanvasGroup Z1R;
+   public CanvasGroup SmKeysCanvasGroup;
+   public CanvasGroup Z3KeyscanCanvasGroup;
 
    public RectTransform SmTransform;
    public RectTransform AlttpTransform;
    public RectTransform ZebesTransform;
    public RectTransform ZeldaTransform;
+   public RectTransform ZeldaErTransform;
+   [SerializeField] private Sprite checkmark;
+   private Image _button;
+   private Vector2 ZeldaERstrat;
    private Vector2 smstart;
    private Vector2 alttpstart;
    private Vector2 m1start;
    private Vector2 z1start;
+   [SerializeField] private Iteminfo Z1ER;
+   [SerializeField] private Iteminfo Z3Keysinfo;
+   [SerializeField] private Iteminfo SMKeysinfo;
+   private bool Z3er = false;
+   private bool SMKeys = false;
+   private bool Z3Keys = false;
+   private Sprite startingsprite;
 
 
    private void Start()
@@ -36,8 +49,71 @@ public class ChangeAlphaAnRay : MonoBehaviour
       alttpstart = AlttpTransform.anchoredPosition;
       m1start = ZebesTransform.anchoredPosition;
       z1start = ZeldaTransform.anchoredPosition;
+      ZeldaERstrat = ZeldaErTransform.anchoredPosition;
+      _button = GetComponent<Button>().image;
+      startingsprite = _button.sprite;
    }
 
+   public void toggleSMKeys()
+   {
+      if (SMKeysinfo.Item == false)
+      {
+         SMKeysinfo.Item = true;
+         _button.sprite = checkmark;
+         SmKeysCanvasGroup.alpha = 1;
+         SmKeysCanvasGroup.blocksRaycasts = true;
+         all();
+      }
+      else
+      {
+         SMKeysinfo.Item = false;
+         _button.sprite = startingsprite;
+         SmKeysCanvasGroup.alpha = 0;
+         SmKeysCanvasGroup.blocksRaycasts = false;
+         all();
+      }
+
+   }
+   public void toggleZ3Keys()
+   {
+      if (Z3Keysinfo.Item == false)
+      {
+         Z3Keysinfo.Item = true;
+         _button.sprite = checkmark;
+         Z3KeyscanCanvasGroup.alpha = 1;
+         Z3KeyscanCanvasGroup.blocksRaycasts = true;
+         all();
+      }
+      else
+      { Z3Keysinfo.Item = false;
+         _button.sprite = startingsprite;
+         Z3KeyscanCanvasGroup.alpha = 0;
+         Z3KeyscanCanvasGroup.blocksRaycasts =false;
+         all();
+      }
+   }
+   public void toggleZ1ER()
+   {
+      if (Z1ER.Item == false)
+      {
+         Z1ER.Item = true;
+         _button.sprite = checkmark;
+         all();
+      }
+      else
+      {
+         Z1ER.Item = false;
+         _button.sprite = startingsprite;
+         all();
+      }
+      
+     
+   }
+
+   public void toggleZ3ER()
+   {
+      
+   }
    public void all()
 
    {
@@ -45,21 +121,51 @@ public class ChangeAlphaAnRay : MonoBehaviour
       AlttpTransform.anchoredPosition = alttpstart;
        ZebesTransform.anchoredPosition = m1start;
         ZeldaTransform.anchoredPosition = z1start;
-        SmTransform.localScale = new Vector3(0.46f, 0.52f, 0.53f);
-        AlttpTransform.localScale = new Vector3(0.47f, 0.45f, .56f);
-        ZebesTransform.localScale = new Vector3(.39f,.39f,.41f);
-        ZeldaTransform.localScale = new Vector3(0.67f, 0.43f, 0.71f);
+        ZeldaErTransform.anchoredPosition = ZeldaERstrat;
+        if (SMKeysinfo.Item || Z3Keysinfo.Item)
+        {
+           AlttpTransform.localScale = new Vector3(0.382f, 0.45f, .56f);
+           SmTransform.localScale = new Vector3(0.46f, 0.52f, 0.53f);
+           ZebesTransform.localScale = new Vector3(.39f,.39f,.41f);
+           ZeldaTransform.localScale = new Vector3(0.67f, 0.41f, 0.71f);
+           ZeldaErTransform.localScale = new Vector3(0.66f, 0.353f, 0.71f);
+        }
+        else
+        {
+           SmTransform.localScale = new Vector3(0.46f, 0.52f, 0.53f);
+           AlttpTransform.localScale = new Vector3(0.47f, 0.45f, .56f);
+           ZebesTransform.localScale = new Vector3(.39f,.39f,.41f);
+           ZeldaTransform.localScale = new Vector3(0.67f, 0.41f, 0.71f);
+           ZeldaErTransform.localScale = new Vector3(0.66f, 0.353f, 0.71f);
+        }
+      
         
-      Z1R.blocksRaycasts = false;
-      Z1R.alpha = 0;
+     
       Sm.alpha = 1;
       Sm.blocksRaycasts = true;
       alttp.alpha = 1;
       alttp.blocksRaycasts = true;
       zebes.alpha = 1;
       zebes.blocksRaycasts = true;
-      zelda.alpha = 1;
-      zelda.blocksRaycasts = true;
+      
+      if (Z1ER.Item)
+      {
+         Z1R.blocksRaycasts = true;
+         Z1R.alpha = 1;
+         zelda.alpha = 0;
+         zelda.blocksRaycasts = false;
+      }
+      else
+      {
+         Z1R.blocksRaycasts = false;
+         Z1R.alpha = 0;
+         zelda.alpha = 1;
+         zelda.blocksRaycasts = true;
+      }
+      
+      
+      
+      
       d1.alpha = 0;
       d1.blocksRaycasts = false;
       d2.alpha = 0;
@@ -119,8 +225,8 @@ public class ChangeAlphaAnRay : MonoBehaviour
       Z1R.alpha = 0;
       Sm.alpha = 0;
       Sm.blocksRaycasts = false;
-      AlttpTransform.anchoredPosition = new Vector2(483, 14);
-      AlttpTransform.localScale = new Vector3(0.8f, 0.8f);
+      AlttpTransform.anchoredPosition = new Vector2(500, 14);
+      AlttpTransform.localScale = new Vector3(0.75f, 0.8f);
       alttp.alpha = 1;
       alttp.blocksRaycasts = true;
       zebes.alpha = 0;
@@ -156,7 +262,7 @@ public class ChangeAlphaAnRay : MonoBehaviour
       alttp.blocksRaycasts = false;
       zebes.alpha = 1;
       zebes.blocksRaycasts = true;
-      ZebesTransform.anchoredPosition = new Vector2(405, 38);
+      ZebesTransform.anchoredPosition = new Vector2(405, -192);
       ZebesTransform.localScale = new Vector3(0.8f, 0.8f);
       zelda.alpha = 0;
       zelda.blocksRaycasts = false;
@@ -181,18 +287,30 @@ public class ChangeAlphaAnRay : MonoBehaviour
    }
    public void Zelda()
    {
-      Z1R.blocksRaycasts = false;
-      Z1R.alpha = 0;
+      if (Z1ER.Item)
+      {
+         Z1R.blocksRaycasts = true;
+         Z1R.alpha = 1;
+         ZeldaErTransform.anchoredPosition = new Vector2(140, 270);
+         ZeldaErTransform.localScale = new Vector3(.95f, .8f);
+         zelda.alpha = 0;
+         zelda.blocksRaycasts = false;
+      }
+      else
+      {
+          Z1R.blocksRaycasts = false;
+          Z1R.alpha = 0;
+         zelda.alpha = 1;
+         zelda.blocksRaycasts = true;
+         ZeldaTransform.anchoredPosition = new Vector2(140, 250);
+         ZeldaTransform.localScale = new Vector3(.95f, .9f);
+      }
       Sm.alpha = 0;
       Sm.blocksRaycasts = false;
       alttp.alpha = 0;
       alttp.blocksRaycasts = false;
       zebes.alpha = 0;
       zebes.blocksRaycasts = false;
-      zelda.alpha = 1;
-      zelda.blocksRaycasts = true;
-      ZeldaTransform.anchoredPosition = new Vector2(100, 250);
-      ZeldaTransform.localScale = new Vector3(1f, .9f);
       d1.alpha = 0;
       d1.blocksRaycasts = false;
       d2.alpha = 0;

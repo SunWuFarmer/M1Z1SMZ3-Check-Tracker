@@ -41,3 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: maps
+    uniqueID: 2937232259
+    locked: 0
+  - name: checks
+    uniqueID: 1743355997
+    locked: 0
+  - name: popups
+    uniqueID: 3446219765
+    locked: 0
+  - name: New Layer 4
+    uniqueID: 3397781245
+    locked: 0
