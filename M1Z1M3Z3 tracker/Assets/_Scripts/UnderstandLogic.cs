@@ -484,7 +484,7 @@ public class UnderstandLogic : MonoBehaviour
   private bool _canAccessDarkWorldMountainEast;
   private bool _traccess;
   private bool _mmaccess;
-  private int _requriedcount;
+ // private int _requriedcount;
   private bool _heart6;
   private bool _heart12;
   private bool _m1missle;
@@ -570,7 +570,7 @@ public class UnderstandLogic : MonoBehaviour
       _pendentcount = itemsFlags.pendent.itemcount;
       _crystalcount = itemsFlags.crystals;
       _redcrystals = itemsFlags.redcrystals;
-      _requriedcount = itemsFlags.requiredz3.itemcount;
+     // _requriedcount = itemsFlags.requiredz3.itemcount;
       _mmaccess = itemsFlags.IsItemAvailable("MMaccess");
       _traccess = itemsFlags.IsItemAvailable("TRaccess");
 
@@ -915,25 +915,20 @@ public class UnderstandLogic : MonoBehaviour
       if (_canEnterAndLeaveGauntlet)
       {
         gauntlet.SetNormal("yellow");
-
-        if (itemsFlags.IsItemAvailable("tank1"))
-        {
-          gauntlet.SetNormal("green");
-        }
-      }
-      else
-      {
-        gauntlet.SetNormal("red");
-      }
-
       if (itemsFlags.IsItemsAvailable(new[] { "Speed", "tank2" }) ||
           itemsFlags.IsItemsAvailable(new[] { "Morph", "Pb 5" }))
       {
         gauntlet.SetNormal("yellow");
       }
-
-
-
+      else if (itemsFlags.IsItemAvailable("tank1"))
+      {
+        gauntlet.SetNormal("green");
+      }
+      }
+      else
+      {
+        gauntlet.SetNormal("red");
+      }
 
       // Back of Gauntlet
 
@@ -2006,7 +2001,7 @@ public class UnderstandLogic : MonoBehaviour
 
       if (_flip || _glove1)
       {
-          scam.SetNormal("green");
+        scam.SetNormal("green");
         
           
       }
@@ -2257,7 +2252,7 @@ public class UnderstandLogic : MonoBehaviour
           }
           else
           {
-             deserttablet.SetNormal("yellow");
+            deserttablet.SetNormal("yellow");
           }
 
         }
@@ -2530,7 +2525,7 @@ public class UnderstandLogic : MonoBehaviour
         mimic.SetNormal("red");
       }
 
-      if (_crystalcount.itemcount >= _requriedcount)
+     /* if (_crystalcount.itemcount >= _requriedcount)
       {
         if (_firerod && _hammer && _hook && _bowz3)
         {
@@ -2544,7 +2539,7 @@ public class UnderstandLogic : MonoBehaviour
       else
       {
         gt.SetNormal("red");
-      }
+      } */
 
       if ((_boots && _glove2) || (_boots && _mirror && _darkworldaccess))
       {

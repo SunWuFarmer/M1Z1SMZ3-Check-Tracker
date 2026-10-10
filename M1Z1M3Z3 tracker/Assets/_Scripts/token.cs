@@ -33,7 +33,7 @@ public class token : MonoBehaviour
    
      public void OnrightClick()
      {
-       itemTrigger.TriggerEvent();
+      // itemTrigger.TriggerEvent();
        displayeditem = GetComponent<Image>();
        itemshown+=1;
        if (itemshown > 4)
@@ -42,37 +42,12 @@ public class token : MonoBehaviour
        }
    
        DisplayImage();
-       itemTrigger.TriggerEvent();
+      // itemTrigger.TriggerEvent();
      }
      public void OnLeftClick()
      {
-       if (!light)
+      if (!light)
        {
-         if (_pressed)
-         {
-           _pressed = false;
-           cystals.itemcount--;
-         }
-        
-         if (_pressed2)
-         {
-           _pressed2 = false;
-           redcystals.itemcount--;
-           cystals.itemcount--;
-         }
-        
-         if (_pressed3)
-         {
-           _pressed3 = false;
-           greenpendent.Item = false;
-         }
-        
-         if (_pressed4)
-         {
-           _pressed4 = false;
-           pendent.itemcount--;
-         }
-
          if (itemshown == 1)
          {
            displayeditem.sprite = item5;
@@ -120,7 +95,7 @@ public class token : MonoBehaviour
        {
          DisplayImage();
        }
-       itemTrigger.TriggerEvent();
+      // itemTrigger.TriggerEvent();
      }
      private void DisplayImage()
      {

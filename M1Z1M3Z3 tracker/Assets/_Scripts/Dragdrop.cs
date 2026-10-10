@@ -10,6 +10,8 @@ public class Dragdrop : MonoBehaviour, IPointerDownHandler,IBeginDragHandler,IEn
 
    private CanvasGroup canvasGroup;
    private RectTransform _rectTransform;
+   [SerializeField] private float scalemultiX = 1.05f;
+   [SerializeField] private float scalemultiY = 1.25f;
 
    private void Awake()
    {
@@ -28,7 +30,7 @@ public class Dragdrop : MonoBehaviour, IPointerDownHandler,IBeginDragHandler,IEn
    public void OnDrag(PointerEventData eventData)
    {
       Debug.Log("Ondrag");
-      _rectTransform.anchoredPosition += new Vector2(eventData.delta.x *.95f,eventData.delta.y*1.25f)/Canvas.scaleFactor;
+      _rectTransform.anchoredPosition += new Vector2(eventData.delta.x * scalemultiX ,eventData.delta.y * scalemultiY )/(Canvas.scaleFactor );
    }
 
    public void OnEndDrag(PointerEventData eventData)

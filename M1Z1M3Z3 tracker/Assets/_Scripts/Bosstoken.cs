@@ -34,7 +34,7 @@ public class Bosstoken : MonoBehaviour
            
 
         } z3RequIteminfo.itemcount = textnumber;
-        DisplayText();
+       // DisplayText();
     }
    
     public void OnleftClick()
